@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'/>
+<meta name='viewport' content='width=device-width, initial-scale=1'/>
+<title>Fantasy XI Elite</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZG0QK311WX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZG0QK311WX');
+</script>
+<link rel='preload' href='styles.css' as='style'/>
+</head>
+<body>
+  <header class='brand'>
+    <div class='logo'>Fantasy XI Elite</div>
+    <nav><a href="#team">Team</a><a href="#points">Points</a><a href="#tools">Tools</a></nav>
+  </header>
+  <section class='hero'>
+    <h1>Build. Captain. Win.</h1>
+    <p>Squad selector, projection engine and live points hub.</p>
+  </section>
+  <section id='team' class='panel'>
+    <h2>Your Squad</h2>
+    <div class='grid' id='squad'>
+      <div class='card'>Goalkeeper<br/><span class='sub'>R. Singh</span><br/>Points: 52</div>
+      <div class='card'>Defender<br/><span class='sub'>K. Ito</span><br/>Points: 34</div>
+      <div class='card'>Forward<br/><span class='sub'>D. Kim</span><br/>Points: 47</div>
+    </div>
+    <button onclick='shuffleUsers()'>Shuffle Squad</button>
+  </section>
+  <section id='points' class='panel'>
+    <h2>Live Points</h2>
+    <div id='pointsArea' class='grid'>
+      <div class='card'>R. Singh 12</div><div class='card'>K. Ito 9</div><div class='card'>D. Kim 11</div>
+    </div>
+  </section>
+  <section id='tools' class='panel'>
+    <h2>Projection Tools</h2>
+    <label>Fixture Week: <input id='week' type='range' min='1' max='38' value='12'/><span id='wk'>12</span></label>
+    <div id='proj' class='card'>Projected Points: 56</div>
+  </section>
+  <section id='news' class='panel'>
+    <h2>News</h2>
+    <ul>
+      <li>New captaincy rotation announced.</li>
+      <li>Transfer market boosts squad depth in midfield.</li>
+    </ul>
+  </section>
+  <footer class='siteFooter'>
+    <p>&copy; 2026 Fantasy XI Elite</p>
+    <button id='darkToggle'>Dark</button>
+  </footer>
+  <script>
+    function shuffleUsers(){const area=document.getElementById('squad');area.innerHTML='';['A. Lee','B. Park','C. Silva','D. Rossi'].forEach((n,i)=>{const d=document.createElement('div');d.className='card';d.innerHTML='Player '+n+'<br/><span class="sub">Role '+(i+1)+'</span>';area.appendChild(d);});}
+    document.getElementById('week').addEventListener('input',e=>{document.getElementById('wk').textContent=e.target.value;});
+    document.getElementById('darkToggle').addEventListener('click',()=>{document.body.classList.toggle('dark');});
+  </script>
+</body>
+</html>
